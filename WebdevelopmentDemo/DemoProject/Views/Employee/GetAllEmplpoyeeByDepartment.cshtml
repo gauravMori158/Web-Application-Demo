@@ -1,0 +1,52 @@
+﻿@model IEnumerable<DemoProject.ViewModels.EmployeeByDepartmentsModel>
+@{
+    ViewData["Title"] = "GetAllEmplpoyeeByDepartment";
+}
+
+<h1>Employees By Department</h1>
+
+<table class="table table-bordered table-hover text-center">
+    <thead>
+        <tr>
+            <th>
+                Department Name
+            </th>
+            <th>
+                First Name
+            </th>
+            <th>
+                Lsat Name
+            </th>
+            <th>
+                Email Id
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td colspan="4" class="text-start fw-bold">
+                    @item.DepartmentName
+                </td>
+            </tr>
+            @foreach (var employee in item.Employees)
+            {
+                <tr>
+                    <td></td>
+                    <td>
+                        @employee.FirstName
+                    </td>
+                    <td>
+                        @employee.LastName
+                    </td>
+                    <td>
+                        @employee.Email
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
+
